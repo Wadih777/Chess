@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Chess Game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .chess-board {
+            width: 640px;
+            height: 640px;
+            border: 2px solid #333;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            background-color: white;
+        }
+        .square {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 50px;
+        }
+        .white {
+            background-color: #fff;
+        }
+        .black {
+            background-color: #769656;
+        }
+        .piece {
+            user-select: none;
+        }
+        .piece.white-piece {
+            color: #fff;
+            text-shadow: 0 0 2px #000;
+        }
+        .piece.black-piece {
+            color: #000;
+        }
+        .selected {
+            background-color: #baca44 !important;
+        }
+        .valid-move {
+            position: relative;
+        }
+        .valid-move::before {
+            content: "";
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+        }
+        .game-info {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="game-info">Current Turn: <span id="currentTurn">White</span></div>
+    <div class="chess-board" id="chessBoard"></div>
+    <script src="js/game.js"></script>
+</body>
+</html>
